@@ -1,0 +1,13 @@
+{
+  "name": "com.raxy.loot",
+  "version": "1.0.0",
+  "displayName": "RAXY Loot System",
+  "author": {
+    "name": "RobyRAX",
+    "url": "https://github.com/RobyRAX"
+  },
+  "dependencies": {
+    "com.raxy.inventory": "1.0.0",
+    "com.raxy.utility": "1.0.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "RAXY.LootSystem",
+    "rootNamespace": "RAXY.LootSystem",
+    "references": [
+        "GUID:19d7551e0ad69424f8cc0d5838b15d18",
+        "GUID:736f23a4f42e49d429767945c0c5b49e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
