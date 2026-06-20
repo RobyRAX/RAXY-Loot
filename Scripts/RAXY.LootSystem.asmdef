@@ -2,9 +2,9 @@
     "name": "RAXY.LootSystem",
     "rootNamespace": "RAXY.LootSystem",
     "references": [
-        "GUID:19d7551e0ad69424f8cc0d5838b15d18",
-        "GUID:736f23a4f42e49d429767945c0c5b49e",
-        "GUID:1791bbf8084eb024c969f9c18278e210"
+        "RAXY.InventorySystem",
+        "RAXY.Utility",
+        "RAXY.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
