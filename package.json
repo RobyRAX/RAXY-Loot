@@ -7,6 +7,7 @@
     "url": "https://github.com/RobyRAX"
   },
   "dependencies": {
+    "com.raxy.core": "1.0.0",
     "com.raxy.inventory": "1.0.0",
     "com.raxy.utility": "1.0.0"
   }
