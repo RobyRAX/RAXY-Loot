@@ -21,6 +21,9 @@ namespace RAXY.LootSystem
             InitializePools();
         }
 
+        [TitleGroup("Inventory Manager")]
+        public InventoryManagerBase inventoryManager;
+
         [TitleGroup("Prefab")]
         public List<DroppedLootPrefabEntry> droppedLootPrefabs = new();
 
@@ -200,7 +203,7 @@ namespace RAXY.LootSystem
                 );
 
                 droppedLoot.transform.position = position + offset;
-                droppedLoot.Setup(itemAmount, DroppedLootAttractTarget);
+                droppedLoot.Setup(itemAmount, DroppedLootAttractTarget, inventoryManager);
                 yield return new WaitForSeconds(delayPerDrop);
             }
         }
@@ -218,7 +221,7 @@ namespace RAXY.LootSystem
             }
             else if (lootDropper.PickType == LootPickType.AddBatch)
             {
-                InventoryManagerBase.PlayerInventoryInstance.AddItem_Batch(loots);
+                inventoryManager.PlayerInventoryInstance.AddItem_Batch(loots);
             }
         }
 
@@ -227,7 +230,7 @@ namespace RAXY.LootSystem
             var newDelay = new WaitForSeconds(0.1f);
             foreach (var item in items)
             {
-                InventoryManagerBase.PlayerInventoryInstance.AddItem(item);
+                inventoryManager.PlayerInventoryInstance.AddItem(item);
                 yield return newDelay;
             }
         }

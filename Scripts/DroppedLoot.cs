@@ -34,6 +34,10 @@ namespace RAXY.LootSystem
         public ItemAmountContainer itemAmount;
 
         [TitleGroup("Debug"), ReadOnly]
+        [ShowInInspector]
+        InventoryManagerBase _inventoryMan;
+
+        [TitleGroup("Debug"), ReadOnly]
         public IItemEntry itemEntry;
 
         [TitleGroup("Debug"), ShowInInspector, ReadOnly]
@@ -68,11 +72,13 @@ namespace RAXY.LootSystem
         }
 
         [Button]
-        public void Setup(ItemAmountContainer item, Transform attractTarget)
+        public void Setup(ItemAmountContainer item, Transform attractTarget, InventoryManagerBase inventoryMan)
         {
+            _inventoryMan = inventoryMan;
+
             itemAmount = item;
-            itemEntry = InventoryManagerBase.Instance.ItemDatabase.GetItemEntry(item.itemId);
-            itemIconImg.sprite = itemEntry.ItemIconProvider.Asset;
+            itemEntry = _inventoryMan.ItemDatabase.GetItemEntry(item.itemId);
+            itemIconImg.sprite = itemEntry.ItemIcon;
 
             _attractTarget = attractTarget;
             isGiven = false;
@@ -151,8 +157,11 @@ namespace RAXY.LootSystem
         {
             if (isGiven)
                 return;
+            
+            if (_inventoryMan == null)
+                return;
 
-            InventoryManagerBase.PlayerInventoryInstance.AddItem(itemAmount);
+            _inventoryMan.PlayerInventoryInstance.AddItem(itemAmount);
             isGiven = true;
         }
     }
